@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} Social Media | Sign Up {% endblock title %}
+    {% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registrations/style.css' %}" />
+    {% endblock link %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="form-box">
+        <form method="post" id="signupForm" class="form" action="{% url 'signup' %}">
+            <span class="title">Sign Up</span>
+            <span class="subtitle">Create a new account</span>
+            {% csrf_token %}
+            <div class="form-container">
+                <input type="text" class="input" name="username" placeholder="Username" required />
+                <input type="email" class="input" name="email_input" placeholder="Email" required />
+                <input type="text" class="input" name="first_name" placeholder="First Name" required />
+                <input type="text" class="input" name="last_name" placeholder="Last Name" required />
+                <input type="password" class="input" name="password" placeholder="Password" required />
+                <input type="password" class="input" name="confirm_password" placeholder="Confirm Password" required />
+            </div>
+            <button type="submit" class="button">Sign Up</button>
+        </form>
+        <div class="form-section">
+            <span class="subtitle">Have an account? <a href="{% url 'signin' %}" class="link">Sign In</a></span>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    {% endblock content %}
+</body>
+
+</html>

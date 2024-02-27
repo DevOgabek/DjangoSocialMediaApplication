@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} Social Media | Code Verification {% endblock title %}
+    {% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registrations/style.css' %}" />
+    {% endblock link %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="form-box">
+        <form method="post" class="form" action="{% url 'verification' %}">
+            <span class="title">Verification</span>
+            <span class="subtitle">A verification code has been sent to your email</span>
+            <span class="subtitle">{{ masked_email }}</span>
+            {% csrf_token %}
+            <div class="form-container">
+                <input type="text" class="input" name="code-input" placeholder="Code" required pattern="[0-9]{6}" />
+            </div>
+            <button type="submit" class="button">Verify</button>
+        </form>
+        <div class="form-section">
+            <span class="subtitle">Are you sure cancellation? <a href="{% url 'signin' %}"
+                    class="link">Cancel</a></span><br />
+            <span class="subtitle">Are you sure you want to resend the code? <a href="{% url 'verification' %}"
+                    class="link">Send</a></span>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    {% endblock content %}
+</body>
+
+</html>

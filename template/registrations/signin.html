@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} Social Media | Sign In {% endblock title %}
+    {% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registrations/style.css' %}" />
+    {% endblock link %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="form-box">
+        <form method="post" id="signinForm" class="form" action="{% url 'signin' %}">
+            <span class="title">Sign In</span>
+            <span class="subtitle">Log in to your account</span>
+            {% csrf_token %}
+            <div class="form-container">
+                <input type="text" class="input" name="username" placeholder="Username" required />
+                <input type="password" class="input" name="password" placeholder="Password" required />
+            </div>
+            <button type="submit" class="button" id="signInButton">Sign In</button>
+        </form>
+        <div class="form-section">
+            <span class="subtitle">Don't have an account? <a href="{% url 'signup' %}" class="link">Sign
+                    Up</a></span><br />
+            <span class="subtitle">Forgot password? <a href="{% url 'reset_password' %}" class="link">Reset
+                    password</a></span>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

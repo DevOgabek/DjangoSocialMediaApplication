@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} Social Media | Settings {% endblock title %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+    <script src="{% static 'js/settings.js' %}"></script>
+    {% endblock link %}
+</head>
+
+<body>
+    {% block content %}
+
+    <div class="sidebar">
+        <div class="profile-card">
+            <img class="profile-img" src="{{ profile.profile_img.url }}" alt="Profile Image">
+            <div>
+                <div>{{ profile.user }}</div>
+                <div>{{ profile.user.email }}</div>
+            </div>
+        </div>
+        <div class="section-names">
+            <div class="section-name" onclick="showSection('public')">
+                Public Profile
+            </div>
+            <div class="section-name" onclick="showSection('account')">
+                Account
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-container" id="settings-public">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" id="first_name" name="first_name" placeholder="First Name"
+                value="{{ profile.first_name }}">
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" value="{{ profile.last_name }}">
+            <textarea id="bio" name="bio" placeholder="Bio">{{ profile.bio }}</textarea>
+            <input type="file" id="profile_img" name="profile_img">
+            <button type="submit">Save</button>
+        </form>
+
+    </div>
+
+    <div class="settings-container" id="settings-account" style="display: none;">
+        <h2 class="settings-header"><i class="fas fa-cog"></i> Account Settings</h2>
+        <a href="{% url 'delete_account' %}">
+            <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete Account</button>
+        </a>
+        <a href="{% url 'change_password' %}">
+            <button class="change-pass-btn"><i class="fas fa-key"></i> Change Password</button>
+        </a>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

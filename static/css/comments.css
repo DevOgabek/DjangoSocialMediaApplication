@@ -1,0 +1,138 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 70%;
+}
+
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 80%;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: fixed;
+    right: 13%;
+    color: #888;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    color: #ddd;
+    transition: background-color 0.3s ease;
+    border-radius: 19px;
+}
+
+.comment:hover {
+    background-color: #333;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.comment-text {
+    flex: 1;
+}
+
+.comment-text p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.comment-text p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+#commentForm {
+    margin-top: 20px;
+}
+
+#commentForm {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    width: 80%;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.comment-form-label {
+    color: #ddd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.comment-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ddd;
+}
+
+.comment-input::placeholder {
+    color: #888;
+}
+
+.submit-btn {
+    background-color: #333333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment p.created-at {
+    font-style: italic;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 5px 0;
+}

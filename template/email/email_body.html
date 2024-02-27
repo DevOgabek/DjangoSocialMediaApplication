@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f0f5f9, #c5dce7);
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .verification-code {
+            font-size: 48px;
+            font-weight: bold;
+            color: #007BFF;
+            display: inline-block;
+            margin: 20px 0;
+            border: 2px solid #007BFF;
+            padding: 15px 30px;
+            border-radius: 8px;
+            background: #f0f5f9;
+        }
+
+        .action-button {
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        .instruction {
+            color: #666666;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .note {
+            color: #888888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .verification-code {
+                font-size: 36px;
+                padding: 10px 20px;
+            }
+
+            .action-button {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+
+            .instruction {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{title}</h1>
+        <p class="instruction">{instruction}</p>
+        <p class="verification-code" id="verificationCode">
+            {verification_code}
+        </p>
+        <p class="note">{note}</p>
+        <a class="action-button" href="http://127.0.0.1:8000/users/token/{token}">Use
+            token</a>
+    </div>
+</body>
+
+</html>

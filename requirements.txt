@@ -1,0 +1,8 @@
+asgiref==3.7.2
+beautifulsoup4==4.12.3
+bs4==0.0.2
+Django==5.0.2
+pillow==10.2.0
+python-decouple==3.8
+soupsieve==2.5
+sqlparse==0.4.4

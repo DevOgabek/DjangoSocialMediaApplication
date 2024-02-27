@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} Social Media | Edit {% endblock title %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/create.css' %}" />
+    {% endblock link %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <form class="form-container" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Edit Post</h2>
+            <div class="form-group"> <label for="postImage" class="custom-file-upload"> <input type="file"
+                        id="postImage" name="post_img" accept="image/*" onchange="updateFileName(this)" /> <span
+                        id="fileName">Choose an Image</span> </label> </div>
+            <div class="form-group"> <textarea id="body" name="body" placeholder="Write a body for the post" rows="6"
+                    required>{{ post.body }}</textarea></div>
+            <div class="form-group"> <input type="submit" value="Save" /> </div>
+        </form>
+        <form class="form-container" method="POST" action="{% url 'delete_post' post.pk %}">
+            {% csrf_token %}
+            <input type="submit" class="delete" value="Delete">
+        </form>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

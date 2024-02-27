@@ -1,0 +1,168 @@
+.blog-card {
+    position: relative;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 600px;
+    width: calc(100% - 30px);
+    background-color: #000000;
+    transition: transform 0.3s ease;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.blog-header img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.blog-body {
+    font-size: 16px;
+    color: #c1c1c1;
+    line-height: 1.6;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    color: rgb(182, 182, 182)
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
+.like-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.like-btn:hover {
+    color: #ed4956;
+}
+
+.comment-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #e2e2e2;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.comment-btn:hover {
+    color: #3897f0;
+}
+
+.save-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.save-btn:hover {
+    color: #afafaf;
+}
+
+.like {
+    position: absolute;
+}
+
+.chat {
+    position: absolute;
+    margin-left: 50px;
+}
+
+.send {
+    position: absolute;
+    margin-left: 100px;
+}
+
+.save {
+    margin-left: 90%;
+}
+
+.likes_count {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.followers-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.follower-card {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
+    margin-right: 12px;
+    border-radius: 50%;
+    text-align: center;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+.follower-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.edit {
+    position: absolute;
+    margin-left: 530px;
+}

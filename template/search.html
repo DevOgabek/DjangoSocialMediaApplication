@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} Social Media | Search {% endblock title %}
+    {% block link %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}" />
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {% endblock link %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="search">
+        <div class="search-box">
+            <div class="search-field">
+                <form method="post">
+                    {% csrf_token %}
+                    <input placeholder="Type / to search" class="input" type="text" name="username" id="search-bar"
+                        required value="{{search_term}}">
+                    <div class="search-box-icon">
+                        <button class="btn-icon-content" type="submit">
+                            <i class="search-icon">
+                                <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+                                    <path
+                                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                                        fill="#fff"></path>
+                                </svg>
+                            </i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% if profiles %}
+    {% for profile in profiles %}
+    <div class="user__container">
+        <div class="user">
+            <div class="image">
+                {% if user != profile.user %}
+                <a href="{% url 'profile_detail' profile.pk %}">
+                    <img src="{{profile.profile_img.url}}" alt="" class="image">
+                </a>
+                {% else %}
+                <a href="{% url 'my_profile' %}">
+                    <img src="{{profile.profile_img.url}}" alt="" class="image">
+                </a>
+                {% endif %}
+            </div>
+            <div class="user__content">
+                <div class="text">
+                    <span class="name">{{profile.first_name}} {{profile.last_name}}</span>
+                    <p class="username">{{profile.user}}</p>
+                </div>
+                {% if user.is_authenticated %}
+                {% if user != profile.user %}
+                <div class="profile-actions">
+                    {% if profile in user.profile.follows.all %}
+                    <form method="post" action="{% url 'unfollow' profile.pk %}" class="follow-form">
+                        {% csrf_token %}
+                        <button class="follow" type="submit" data-profile-pk="{{ profile.pk }}">Unfollow</button>
+                    </form>
+                    {% else %}
+                    <form method="post" action="{% url 'follow' profile.pk %}" class="follow-form">
+                        {% csrf_token %}
+                        <button class="follow" type="submit" data-profile-pk="{{ profile.pk }}">Follow</button>
+                    </form>
+                    {% endif %}
+
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+    {% endif %}
+    </div>
+    {% endblock content %}
+</body>
+
+</html>
