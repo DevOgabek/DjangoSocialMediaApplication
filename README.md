@@ -14,8 +14,9 @@ Check out the live demo: [Social Media Platform Demo](https://djangosocialmediaa
 - **Posting**: Create, edit, and delete posts. Attach images for a rich experience.
 - **Comments**: Engage with posts through comments.
 - **Likes**: Express your appreciation by liking posts and comments.
+- **Saves**: Easily find the posts you need by saving posts
 - **Follow/Unfollow**: Stay updated with others' posts.
-- **Search**: Easily find users and posts.
+- **Search**: Easily find users.
 - **Email Verification**: Ensure account security.
 
 > [!IMPORTANT]
